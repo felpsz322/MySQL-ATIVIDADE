@@ -17,16 +17,16 @@ CREATE TABLE IF NOT EXISTS tb_especialidade(
 
 CREATE TABLE IF NOT EXISTS tb_medico(
 	id INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
-    nome VARCHAR(255) NOT NULL,
-    id_especialidade INTEGER, 
+    	nome VARCHAR(255) NOT NULL,
+    	id_especialidade INTEGER, 
 CONSTRAINT fk_especialidade_id FOREIGN KEY (id_especialidade) REFERENCES tb_especialidade (id)
 ) AUTO_INCREMENT = 1;
 
 CREATE TABLE IF NOT EXISTS tb_consulta(
-id INTEGER PRIMARY KEY AUTO_INCREMENT,
-dt_consulta DATE NOT NULL,
-id_medico INTEGER NOT NULL,
-id_paciente INTEGER NOT NULL,
+	id INTEGER PRIMARY KEY AUTO_INCREMENT,
+	dt_consulta DATE NOT NULL,
+	id_medico INTEGER NOT NULL,
+	id_paciente INTEGER NOT NULL,
 CONSTRAINT fk_medico_id FOREIGN KEY (id_medico) REFERENCES tb_medico (id),
 CONSTRAINT fk_paciente_id FOREIGN KEY (id_paciente) REFERENCES tb_paciente (id)
 ) AUTO_INCREMENT = 1;
